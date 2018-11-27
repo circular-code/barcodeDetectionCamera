@@ -12,10 +12,7 @@ button.onclick = function() {
   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
 };
 
-var constraints = {
-  audio: false,
-  video: true
-};
+var constraints = { audio: true, video: { facingMode: { exact: "environment" } } };
 
 function handleSuccess(stream) {
   window.stream = stream;
