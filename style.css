@@ -24,9 +24,8 @@ body {
 video {
   background: #222;
   margin: 0 0 20px 0;
-  --width: 100%;
-  width: var(--width);
-  height: calc(var(--width) * 0.75);
+  width: 100vw;
+  height: 100vh;
 }
 
 main {
@@ -44,4 +43,7 @@ main {
   font-size: 25px;
   padding: 0.5rem 2rem;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

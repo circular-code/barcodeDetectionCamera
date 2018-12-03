@@ -18,7 +18,7 @@ navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handl
 
 window.onload = () => {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight * 0.75;
+    canvas.height = window.innerHeight;
     getBarcode(video);
 };
 
