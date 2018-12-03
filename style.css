@@ -39,7 +39,12 @@ main {
 
 #result {
   font-weight: bold;
-  font-size: 25px;
-  padding: 0.5rem 2rem;
+  font-size: 20px;
+  padding: 16px 0 0 0;
   text-align: center;
+  position: fixed;
+  width: 100vw;
+  height: 40px;
+  background: white;
+  top: calc(100vh - 56px);
 }
