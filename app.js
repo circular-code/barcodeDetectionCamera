@@ -29,7 +29,7 @@ function getBarcode(video) {
             barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
             var c = document.getElementById("myCanvas");
             var ctx = c.getContext("2d");
-
+            ctx.clearRect(0,0,c.width, c.height);
             var detectedBarcode = barcodes[0];
             var cornerPoints = detectedBarcode.cornerPoints;
             ctx.beginPath();
