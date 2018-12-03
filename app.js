@@ -16,15 +16,23 @@ function handleError(error) {
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 
 window.onload = () => {
-    video.addEventListener('click', function(e) {
+    var barcodeDetector = new BarcodeDetector();
+    var video = document.querySelector('video');
 
-        var barcodeDetector = new BarcodeDetector();
-        barcodeDetector.detect(e.target)
-            .then(barcodes => {
-                barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
-            })
-            .catch((e) => {
-                console.error("BarcodeDetection failed: " + e);
-            });
-    });
+    getBarcode(barcodeDetector, video);
 };
+
+function getBarcode(barcodeDetector, video) {
+    barcodeDetector.detect(video)
+    .then(barcodes => {
+        barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
+    })
+    .finally(() => {
+        setTimeout(() => {
+            getBarcode(barcodeDetector, video);
+        }, 100);
+    });
+    // .catch(() => {
+    //     //console.error("BarcodeDetection failed: " + e);
+    // });
+}
