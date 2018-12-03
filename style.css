@@ -24,8 +24,9 @@ body {
 video {
   background: #222;
   margin: 0 0 20px 0;
-  width: 100vw;
-  height: 100vh;
+  --width: 100%;
+  width: --width;
+  height: calc(--width * 0.75);
 }
 
 main {
@@ -34,8 +35,8 @@ main {
 
 #myCanvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50px;
+  left: -38px;
 }
 
 #result {
@@ -43,7 +44,4 @@ main {
   font-size: 25px;
   padding: 0.5rem 2rem;
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
