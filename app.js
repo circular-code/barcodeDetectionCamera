@@ -29,7 +29,6 @@ function getBarcode(video) {
     barcodeDetector.detect(video)
     .then(barcodes => {
         if (barcodes.length > 0) {
-            drawBoard();
             console.log(barcodes);
             barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
             ctx.clearRect(0,0,canvas.width, canvas.height);
@@ -56,26 +55,3 @@ function getBarcode(video) {
         //console.error("BarcodeDetection failed: " + e);
     });
 }
-
-function drawBoard () {
-    //grid width and height
-    var bw = 400;
-    var bh = 400;
-
-    ctx.globalAlpha=0.2;
-
-    for (var x = 0; x <= bw; x += 40) {
-        ctx.moveTo(0.5 + x, 0);
-        ctx.lineTo(0.5 + x, bh + 0);
-    }
-
-    for (var y = 0; y <= bh; y += 40) {
-        ctx.moveTo(0, 0.5 + y);
-        ctx.lineTo(bw, 0.5 + y );
-    }
-
-    ctx.strokeStyle = "#ffffff";
-    ctx.stroke();
-    ctx.globalAlpha=1;
-}
-
