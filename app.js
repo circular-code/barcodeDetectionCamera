@@ -4,6 +4,7 @@
 var video = document.querySelector('video');
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+ctx.lineWidth = 3;
 var constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
 
 function handleSuccess(stream) {
@@ -40,7 +41,7 @@ function getBarcode(video) {
             ctx.lineTo(cornerPoints[2].x,cornerPoints[2].y);
             ctx.lineTo(cornerPoints[3].x,cornerPoints[3].y);
             ctx.lineTo(cornerPoints[0].x,cornerPoints[0].y);
-            ctx.strokeStyle="#0000ff";
+            ctx.strokeStyle="#00ffff";
             ctx.stroke();
             // ctx.rect(20, 20, 150, 100);
             // ctx.stroke();
