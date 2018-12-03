@@ -16,13 +16,12 @@ function handleError(error) {
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 
 window.onload = () => {
-    var barcodeDetector = new BarcodeDetector();
     var video = document.querySelector('video');
-
-    getBarcode(barcodeDetector, video);
+    getBarcode(video);
 };
 
-function getBarcode(barcodeDetector, video) {
+function getBarcode(video) {
+    var barcodeDetector = new BarcodeDetector();
     barcodeDetector.detect(video)
     .then(barcodes => {
         if (barcodes.length > 0) {
@@ -32,7 +31,7 @@ function getBarcode(barcodeDetector, video) {
     })
     .finally(() => {
         setTimeout(() => {
-            getBarcode(barcodeDetector, video);
+            getBarcode(video);
         }, 100);
     })
     .catch(() => {
