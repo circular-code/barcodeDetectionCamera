@@ -34,8 +34,8 @@ function getBarcode(barcodeDetector, video) {
         setTimeout(() => {
             getBarcode(barcodeDetector, video);
         }, 100);
+    })
+    .catch(() => {
+        //console.error("BarcodeDetection failed: " + e);
     });
-    // .catch(() => {
-    //     //console.error("BarcodeDetection failed: " + e);
-    // });
 }
