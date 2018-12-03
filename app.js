@@ -17,8 +17,8 @@ function handleError(error) {
 navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
 
 window.onload = () => {
-    canvas.width = video.width;
-    canvas.height = video.height;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight - 40;
     getBarcode(video);
 };
 
