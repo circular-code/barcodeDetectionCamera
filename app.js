@@ -27,6 +27,20 @@ function getBarcode(video) {
         if (barcodes.length > 0) {
             console.log(barcodes);
             barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+
+            var detectedBarcode = barcodes[0];
+            var cornerPoints = detectedBarcode.cornerPoints;
+            ctx.beginPath();
+            ctx.moveTo(cornerPoints[0].x,cornerPoints[0].y);
+            ctx.lineTo(cornerPoints[1].x,cornerPoints[1].y);
+            ctx.lineTo(cornerPoints[2].x,cornerPoints[2].y);
+            ctx.lineTo(cornerPoints[3].x,cornerPoints[3].y);
+            ctx.strokeStyle="#FF0000";
+            ctx.stroke();
+            // ctx.rect(20, 20, 150, 100);
+            // ctx.stroke();
         }
     })
     .finally(() => {

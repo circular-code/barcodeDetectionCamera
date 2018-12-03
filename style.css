@@ -29,3 +29,15 @@ video {
   width: var(--width);
   height: calc(var(--width) * 0.75);
 }
+
+main {
+  position: relative;
+}
+
+#myCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 44px);
+}
