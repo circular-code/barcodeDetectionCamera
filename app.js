@@ -25,7 +25,10 @@ window.onload = () => {
 function getBarcode(barcodeDetector, video) {
     barcodeDetector.detect(video)
     .then(barcodes => {
-        barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
+        if (barcodes.length > 0) {
+            console.log(barcodes);
+            barcodes.forEach(barcode => document.getElementById('result').textContent = (barcode.rawValue));
+        }
     })
     .finally(() => {
         setTimeout(() => {
