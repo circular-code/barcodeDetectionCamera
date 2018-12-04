@@ -52,7 +52,7 @@ function getBarcode(video) {
             getBarcode(video);
         }, 100);
     })
-    .catch(() => {
+    .catch((e) => {
         console.error("BarcodeDetection failed: " + e);
     });
 }
