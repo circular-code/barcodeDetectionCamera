@@ -6,7 +6,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.lineWidth = 3;
 // var constraints = { audio: false, video: true };
-var constraints = { audio: false, video: { facingMode: { exact: "environment" } } };
+var constraints = { audio: false, video: { facingMode: { ideal: "environment" } } };
 
 function handleSuccess(stream) {
   window.stream = stream;
