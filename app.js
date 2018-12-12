@@ -50,7 +50,7 @@ function getBarcode(video) {
     .finally(() => {
         setTimeout(() => {
             getBarcode(video);
-        }, 100);
+        }, 300);
     })
     .catch((e) => {
         console.error("BarcodeDetection failed: " + e);
